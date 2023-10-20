@@ -1,0 +1,49 @@
+
+{% extends 'partials/base.html' %}
+
+{% load static %}
+
+{% block head_css_site %}
+{{ block.super }}
+<link href="{% static 'css/sign-up.css' %}" rel="stylesheet" type="text/css">
+{% endblock head_css_site %}
+
+
+{% block content %}
+
+<div class="login">
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>{{form.errors}}</strong>
+    </div>
+    {% endif %}
+
+    {% comment %} <input type='text' name='email' id="" /> {% endcomment %}
+
+
+    <form action="" method="POST"  class="registration-form">
+        {% csrf_token %}
+        <h3>Create An Account</h3>
+        <p>Already have an account? Login</p>
+        {{form.username}}
+        {{form.email}}
+        {{form.password1}}
+        {{form.password2}}
+
+
+        <button type='submit'>Submit and Register</button>
+        <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}
