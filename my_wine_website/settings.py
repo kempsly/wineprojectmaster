@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # CUSTOM APPS
     'core',
     'userauths',
+    'classificator',
 ]
 
 MIDDLEWARE = [

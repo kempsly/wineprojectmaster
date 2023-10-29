@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("core.urls")),
     path('user/', include("userauths.urls")),
+    path('classifier/', include("classificator.urls")),
 ]
 
 # In other to our static file and pictures work, we should set it like that
