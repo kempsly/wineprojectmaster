@@ -104,7 +104,7 @@ class Product(models.Model):
         new_price = (self.price / self.old_price) * 100
         return new_price
 
-
+# To display images of a given product
 class ProductImages(models.Model):
     images = models.ImageField(upload_to="product-images", default="product.jpg")
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
@@ -116,7 +116,7 @@ class ProductImages(models.Model):
 
 # ##service
 
-
+# for service provided by us
 class Service(models.Model):
     sId = ShortUUIDField(unique=True, length=10, max_length=20, alphabet="abcdefghi12345")
 
@@ -133,7 +133,6 @@ class Service(models.Model):
 
     status = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)
-    # featured = models.BooleanField(default=True)
 
     sku = ShortUUIDField(unique=True, length=4, max_length=20, prefix="sku", alphabet="123456789")
 
@@ -149,7 +148,7 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
-
+# For product review
 class ProductReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
